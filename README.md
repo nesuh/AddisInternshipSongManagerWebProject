@@ -1,70 +1,241 @@
-# Getting Started with Create React App
+# Full-Stack Music Management Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a full-stack application for managing music. It includes a backend built with NestJS and a frontend built with React, Redux Toolkit, and Redux-Saga. The backend handles CRUD operations for songs and file uploads, while the frontend provides a user interface for interacting with the API.
 
-## Available Scripts
+## Project Overview
 
-In the project directory, you can run:
+- **Frontend**: React application with Redux Toolkit and Redux-Saga for state management. It allows users to view, create, update, and delete songs.
+- **Backend**: NestJS application for managing songs and handling file uploads. It supports CRUD operations and serves song data.
 
-### `npm start`
+## Figma Design
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Design File**: [Music Management UI Design](https://www.figma.com/design/CiqNy4dU8T15C2KDDYeLuD/Untitled?node-id=16-2&node-type=FRAME&t=quI7iVeETyJ0C3Qe-0)  
+## Installation
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Backend
 
-### `npm test`
+1. **Clone the repository**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    ```bash
+    git clone github.com/nesuh/AddisInternshipSongManagerWebProject
+    ```
 
-### `npm run build`
+2. **Install dependencies**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    ```bash
+    npm install
+    ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. **Set up environment variables**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    Create a `.env` file in the root directory and set the following environment variables:
 
-### `npm run eject`
+    ```env
+    DATABASE_HOST=localhost
+    DATABASE_PORT=5432
+    DATABASE_USER=yourusername
+    DATABASE_PASSWORD=yourpassword
+    DATABASE_NAME=song_management
+    ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+4. **Run the application**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    ```bash
+    npm run start
+    ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Frontend
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. **Clone the repository**
 
-## Learn More
+    ```bash
+    git clone github.com/nesuh/AddisInternshipSongManagerWebProject
+    cd music-frontend
+    ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2. **Install dependencies**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    ```bash
+    npm install
+    ```
 
-### Code Splitting
+3. **Set up environment variables**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+    Create a `.env` file in the root directory and set the following environment variables:
 
-### Analyzing the Bundle Size
+    ```env
+    REACT_APP_API_URL=http://localhost:3000
+    ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+4. **Run the application**
 
-### Making a Progressive Web App
+    ```bash
+    npm start
+    ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## API Endpoints
 
-### Advanced Configuration
+### Songs
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- **Get All Songs**
 
-### Deployment
+    ```http
+    GET /songs
+    ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+    **Response:**
 
-### `npm run build` fails to minify
+    ```json
+    [
+      {
+        "id": 1,
+        "title": "Song Title",
+        "album": "Album Name",
+        "artist": "Artist Name",
+        "duration": "3:45",
+        "imagePath": "/uploads/images/imagefile.jpg",
+        "audioPath": "/uploads/music/audiofile.mp3"
+      }
+    ]
+    ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **Get Song by ID**
+
+    ```http
+    GET /songs/:id
+    ```
+
+    **Response:**
+
+    ```json
+    {
+      "id": 1,
+      "title": "Song Title",
+      "album": "Album Name",
+      "artist": "Artist Name",
+      "duration": "3:45",
+      "imagePath": "/uploads/images/imagefile.jpg",
+      "audioPath": "/uploads/music/audiofile.mp3"
+    }
+    ```
+
+- **Create a New Song**
+
+    ```http
+    POST /songs/upload
+    ```
+
+    **Request Body:**
+
+    ```json
+    {
+      "title": "Song Title",
+      "album": "Album Name",
+      "artist": "Artist Name",
+      "duration": "3:45"
+    }
+    ```
+
+    **Request Files:**
+
+    - `imageFile` (image file for the song)
+    - `audioFile` (audio file for the song)
+
+    **Response:**
+
+    ```json
+    {
+      "id": 1,
+      "title": "Song Title",
+      "album": "Album Name",
+      "artist": "Artist Name",
+      "duration": "3:45",
+      "imagePath": "/uploads/images/imagefile.jpg",
+      "audioPath": "/uploads/music/audiofile.mp3"
+    }
+    ```
+
+- **Update a Song**
+
+    ```http
+    PUT /songs/:id
+    ```
+
+    **Request Body:**
+
+    ```json
+    {
+      "title": "Updated Song Title",
+      "album": "Updated Album Name",
+      "artist": "Updated Artist Name",
+      "duration": "4:00"
+    }
+    ```
+
+    **Request Files:**
+
+    - `imageFile` (optional)
+    - `audioFile` (optional)
+
+    **Response:**
+
+    ```json
+    {
+      "id": 1,
+      "title": "Updated Song Title",
+      "album": "Updated Album Name",
+      "artist": "Updated Artist Name",
+      "duration": "4:00",
+      "imagePath": "/uploads/images/updatedimagefile.jpg",
+      "audioPath": "/uploads/music/updatedaudiofile.mp3"
+    }
+    ```
+
+- **Delete a Song**
+
+    ```http
+    DELETE /songs/:id
+    ```
+
+    **Response:**
+
+    ```json
+    {
+      "message": "Song deleted successfully"
+    }
+    ```
+
+## Frontend Design
+
+The frontend design is based on the following Figma designs:
+
+- **Main Page**: [Figma Design - Main Page]([https://www.figma.com/file/yourfilelink](https://www.figma.com/design/CiqNy4dU8T15C2KDDYeLuD/Untitled?node-id=16-2&node-type=FRAME&t=quI7iVeETyJ0C3Qe-0)) 
+
+
+These designs illustrate the layout and visual aspects of the application, including the UI elements, color scheme, typography, and overall user experience.
+
+## Project Structure
+
+### Backend
+
+- `src/songs/` - Contains the song-related modules, services, and controllers.
+- `src/song.entity.ts` - Defines the Song entity.
+- `src/createSongs.dto.ts` - DTOs for creating and updating songs.
+- `src/song.service.ts` - Service handling song operations.
+- `src/song.controller.ts` - Controller handling HTTP requests related to songs.
+
+### Frontend
+
+- `src/components/` - React components for song management (e.g., SongList, SongForm).
+- `src/redux/` - Redux slices and sagas for state management.
+- `src/pages/` - React pages for displaying and managing songs.
+
+## Contributing
+
+Feel free to open issues or submit pull requests. Please ensure your code adheres to the project's coding standards and passes all tests.
+
+
+
+## Contact
+
+For any questions or issues, please contact [antenhesilesi@gmail.com).
