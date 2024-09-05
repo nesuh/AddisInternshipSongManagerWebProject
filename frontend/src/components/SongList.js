@@ -65,12 +65,10 @@ const listItemStyle = css`
 `;
 
 const imgStyle = css`
-  max-width: 100%;
-  height: auto;
+  max-width: 80%;
   border-radius: 5px;
   margin-right: 10px;
 `;
-
 
 const songDescriptionStyle = css`
   border: 1px solid #ddd;
@@ -79,9 +77,8 @@ const songDescriptionStyle = css`
   background-color: #f9f9f9;
   border-radius: 5px;
   text-align: center;
-  color:#4E0467;
-     font-family: 'Poppins', sans-serif;
-  
+  color: #4E0467;
+  font-family: 'Poppins', sans-serif;
 `;
 
 const actionButtonsStyle = css`
@@ -90,32 +87,34 @@ const actionButtonsStyle = css`
   align-items: center;
   justify-content: center;
 `;
-const UDbtn=css`
-margin-right:35px;
-padding:20px;
- &:hover {
+
+const UDbtn = css`
+  margin-right: 35px;
+  padding: 20px;
+  &:hover {
     background-color: #0056b3;
   }
+`;
 
-`
-const ImageSong=css`
-margin-left:-13rem;
-margin-top:10rem;
+const ImageSong = css`
+  margin-left: -13rem;
+  margin-top: 10rem;
 
-img{
-width:300%;
-border-radius:100rem;
-}
-`
+  img {
+    width: 300%;
+    border-radius: 100rem;
+  }
+`;
+
 const buttonStyle = css`
   margin: 5px;
-   padding: 5px 10px;
+  padding: 5px 10px;
   border: none;
   border-radius: 5px;
   background-color: #4E0467;
   color: white;
   cursor: pointer;
-  border:1px solid
+  border: 1px solid;
   &:hover {
     background-color: #0056b3;
   }
@@ -138,22 +137,22 @@ const AddButtonStyle = css`
   justify-content: center;
   padding: 10px;
   z-index: 1000; /* Added z-index to ensure it's on top of other elements */
-  padding:3px 6px;
-    &:hover {
-    background-color:#0056b3;
+  padding: 3px 6px;
+  &:hover {
+    background-color: #0056b3;
   }
-
   font-family: 'Poppins', sans-serif;
   img {
     width: 40px;
     height: 40px;
-    margin-left:10px;
+    margin-left: 10px;
   }
 `;
 
-const PPICON=css`
-border:1px solid #4E0100;
-`
+const PPICON = css`
+  border: 1px solid #4E0100;
+`;
+
 const SongList = () => {
   const dispatch = useDispatch();
   const {songs, loading, error } = useSelector((state) => state.songs);
