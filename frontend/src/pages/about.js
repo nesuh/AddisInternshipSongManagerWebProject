@@ -6,10 +6,10 @@ const aboutUsStyle = css`
   color: #4E0467;
   margin: 100px auto;
   padding: 50px;
-  max-width: 800px; /* Restrict width for better readability */
-  background-color: #f9f9f9; /* Light background for contrast */
-  border-radius: 10px; /* Rounded corners for a modern look */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  max-width: 800px; /*nesuh@- Restrict width for better readability */
+  background-color: #f9f9f9; /* nesuh@- Light background for contrast */
+  border-radius: 10px; /*nesuh@-  Rounded corners for a modern look */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /*nesuh@-  Subtle shadow for depth */
 
   h1 {
     font-size: 2.5rem;
