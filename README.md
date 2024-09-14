@@ -1,3 +1,7 @@
+
+
+
+
 # Full-Stack Music Management Application
 
 This project is a full-stack application for managing music. It includes a backend built with NestJS and a frontend built with React, Redux Toolkit, and Redux-Saga. The backend handles CRUD operations for songs and file uploads, while the frontend provides a user interface for interacting with the API.
@@ -11,7 +15,13 @@ This project is a full-stack application for managing music. It includes a backe
 
 - **Design File**: [Music Management UI Design](https://www.figma.com/design/CiqNy4dU8T15C2KDDYeLuD/Untitled?node-id=16-2&node-type=FRAME&t=quI7iVeETyJ0C3Qe-0)
 
+
+![Design Sample](frontend/src/Assets/music_figma.png)
+
+
+
 - ##youtube Demo:https://youtu.be/HGt09y2FUX0?si=RbeSzyIjbseiFzah 
+
 ## Installation
 
 ### Backend
